@@ -1,16 +1,18 @@
 # UHP - Plano de Ação do Licenciamento Sanitário
 
-Painel HTML para acompanhar os documentos exigidos no processo de licenciamento sanitário, com status, responsável, prazos, resumo do documento e acesso às pastas de evidências no Google Drive.
+Painel HTML para acompanhar os documentos exigidos no processo de licenciamento sanitário, com status, responsável, prazos, resumo do documento e evidências digitais.
 
 ## Estrutura
 
 - `index.html`: aplicação completa em HTML/CSS/JS.
-- Supabase: tabela `public.uhp_action_plan` com 23 itens do checklist e políticas RLS.
-- Google Drive: cada item do plano aponta para a pasta de evidências correspondente, armazenada apenas no banco.
+- Supabase Database: tabela `public.uhp_action_plan` com 23 itens do checklist.
+- Supabase Storage: bucket privado `uhp-evidencias` para armazenar os arquivos anexados.
+- Supabase Database: tabela `public.uhp_evidencias` para registrar nome, tamanho, tipo e vínculo de cada arquivo com o item do plano de ação.
+- Supabase Edge Function `uhp-admin-api`: autenticação do usuário administrativo, leitura e edição do plano, upload e acesso temporário aos arquivos.
 
 ## Segurança
 
-Os links do Google Drive não ficam gravados no repositório público. Eles são lidos do Supabase somente após autenticação. A chave usada no frontend é a chave publicável do Supabase; as políticas RLS limitam a leitura e edição aos usuários autenticados.
+As evidências ficam em bucket privado no Supabase Storage. Não existe link público permanente para os documentos. O acesso aos arquivos é feito pelo backend após validação da sessão administrativa.
 
 ## Publicação no Netlify
 
