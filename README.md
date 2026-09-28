@@ -5,7 +5,6 @@ Painel HTML para acompanhar os documentos exigidos no processo de licenciamento 
 ## Estrutura
 
 - `index.html`: aplicação completa em HTML/CSS/JS.
-- `netlify.toml`: configuração para publicação no Netlify.
 - Supabase: tabela `public.uhp_action_plan` com 23 itens do checklist e políticas RLS.
 - Google Drive: cada item do plano aponta para a pasta de evidências correspondente, armazenada apenas no banco.
 
@@ -15,4 +14,4 @@ Os links do Google Drive não ficam gravados no repositório público. Eles são
 
 ## Publicação no Netlify
 
-Conecte este repositório ao Netlify e use a branch `main`. Não há comando de build; a pasta publicada é a raiz do repositório (`.`). Após conectado, cada push na `main` gera um novo deploy automaticamente.
+Conecte este repositório ao Netlify e use a branch `main`. O projeto é estático, sem comando de build. A publicação deve usar a raiz do repositório, onde está o `index.html`. Após conectado, cada push na `main` gera um novo deploy automaticamente.
