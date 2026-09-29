@@ -27,6 +27,7 @@ jobs:
 
       - name: Exportar para Web
         run: |
+          export HOME=/root
           mkdir -p /tmp/export-web
           cd /tmp/the-free-game/game
           godot --headless --path . --export-release "Web" /tmp/export-web/index.html
@@ -43,6 +44,7 @@ jobs:
 
       - name: Publicar arquivos prontos
         run: |
+          export HOME=/root
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
