@@ -1,0 +1,16 @@
+/
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+/release.json
+  Cache-Control: no-cache
+/part-*.gz
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: application/octet-stream
+/vila-*
+  Cache-Control: public, max-age=31536000, immutable
+/download-*.js
+  Cache-Control: public, max-age=31536000, immutable
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

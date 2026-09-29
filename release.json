@@ -1,0 +1,9 @@
+{
+  "name": "The Free Game",
+  "version": "0.4.4",
+  "build": "f908cbc2c86e",
+  "pack": "the-free-game-f908cbc2c86e.pck",
+  "sha256": "f908cbc2c86e6c900516eecc1601ba9db382e4acd5a68e4a7a3c5beac58324fe",
+  "web_shell_sha256": "7eadcb96006afe129775b6ddb1263cdc4760fddbbc61bc14821a631073eec9b9",
+  "download_bytes": 39305913
+}
