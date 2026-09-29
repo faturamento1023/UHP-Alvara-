@@ -1,8 +1,2 @@
 [build]
   publish = "."
-
-[[redirects]]
-  from = "/*"
-  to = "https://vale-dos-vinhedos.lucas579686.chatgpt.site/:splat"
-  status = 200
-  force = true
