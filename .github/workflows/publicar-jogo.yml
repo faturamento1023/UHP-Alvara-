@@ -1,0 +1,51 @@
+name: Publicar The Free Game
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publicar-jogo.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  exportar:
+    runs-on: ubuntu-22.04
+    container:
+      image: barichello/godot-ci:4.7.2
+    steps:
+      - name: Baixar repositorio de destino
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Baixar codigo do jogo
+        run: |
+          git clone --depth 1 https://github.com/LucasMarquesShiva/the-free-game.git /tmp/the-free-game
+
+      - name: Exportar para Web
+        run: |
+          mkdir -p /tmp/export-web
+          cd /tmp/the-free-game/game
+          godot --headless --path . --export-release "Web" /tmp/export-web/index.html
+          test -f /tmp/export-web/index.html
+
+      - name: Substituir repositorio pelo jogo exportado
+        run: |
+          find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          cp -a /tmp/export-web/. .
+          cp /tmp/the-free-game/LICENSE ./LICENSE
+          cp /tmp/the-free-game/LICENSE-ASSETS.md ./LICENSE-ASSETS.md
+          cp /tmp/the-free-game/THIRD_PARTY_NOTICES.md ./THIRD_PARTY_NOTICES.md
+          printf '[build]\n  publish = "."\n' > netlify.toml
+
+      - name: Publicar arquivos prontos
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Publica The Free Game para navegador"
+          git push origin main
