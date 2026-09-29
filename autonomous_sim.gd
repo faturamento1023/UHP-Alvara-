@@ -242,14 +242,15 @@ func _offline_catchup(seconds: int) -> void:
 		return
 	# População virtual pode crescer bastante sem criar milhares de personagens 3D.
 	population_total += mini(seconds * 2, 2000000)
-	var worker_gain := mini(TARGET_WORKERS - workers.size(), seconds / 20)
+	var worker_gain: int = mini(TARGET_WORKERS - workers.size(), floori(float(seconds) / 20.0))
 	for i in range(maxi(0, mini(worker_gain, 120))):
 		_grow_workforce()
-	var building_gain := mini(30, seconds / 180)
+	var building_gain: int = mini(30, floori(float(seconds) / 180.0))
 	for i in range(maxi(0, building_gain)):
 		_autonomous_planner()
-	_auto_supply("food", mini(500, seconds / 10), 1200)
-	_auto_supply("wood", mini(300, seconds / 20), 800)
-	_auto_supply("stone", mini(300, seconds / 20), 800)
-	_auto_supply("gold", mini(100, seconds / 60), 500)
-	_emit("Enquanto você esteve fora, a vila continuou evoluindo por %d minutos." % maxi(1, seconds / 60), "chime")
+	_auto_supply("food", mini(500, floori(float(seconds) / 10.0)), 1200)
+	_auto_supply("wood", mini(300, floori(float(seconds) / 20.0)), 800)
+	_auto_supply("stone", mini(300, floori(float(seconds) / 20.0)), 800)
+	_auto_supply("gold", mini(100, floori(float(seconds) / 60.0)), 500)
+	var minutes := maxi(1, floori(float(seconds) / 60.0))
+	_emit("Enquanto você esteve fora, a vila continuou evoluindo por %d minutos." % minutes, "chime")
