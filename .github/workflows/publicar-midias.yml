@@ -1,0 +1,39 @@
+name: Publicar midias da Med Center
+on:
+  push:
+    paths:
+      - 'media-chunks/**'
+      - '.github/workflows/publicar-midias.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  preparar-galeria:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter repositório
+        uses: actions/checkout@v4
+      - name: Verificar integridade e extrair fotos e videos
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(find media-chunks -name 'part-*.bin' | wc -l)" -eq 9
+          mkdir -p assets/media
+          cat media-chunks/part-*.bin > /tmp/medcenter-assets.zip
+          unzip -t /tmp/medcenter-assets.zip >/dev/null
+          unzip -oq /tmp/medcenter-assets.zip -d assets/media/
+          test -f assets/media/carreta-unidade-movel.webp
+          test -f assets/media/video-carreta-diagnosticos.mp4
+          test -f assets/media/video-comunidade.mp4
+          echo "Total de mídias: $(find assets/media -type f | wc -l)"
+      - name: Salvar galeria publicada
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/media
+          if ! git diff --cached --quiet; then
+            git commit -m "Inclui fotos reais, carretas e videos da Med Center"
+            git push origin HEAD:main
+          fi
