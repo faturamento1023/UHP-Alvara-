@@ -11,7 +11,7 @@ Portfólio público da Clínica Med Center Ltda (CNPJ 23.059.179/0001-58). Proje
 
 ## Mídia dos dois Instagrams
 Perfis: https://www.instagram.com/medcenter.saudeemacao/ e https://www.instagram.com/med.center5/ .
-Acesso direto às fotos e vídeos foi bloqueado durante esta criação. Não foram inseridas imagens de terceiros nem publicações inventadas. Para incluir fotos e vídeos reais, salve arquivos jpg/webp/png/mp4/webm em assets/media/ e cadastre-os em media.json.
+As fotos e os vídeos reais foram recebidos diretamente da empresa e estão salvos em assets/media/. O arquivo media.json contém a curadoria da galeria, e o fluxo GitHub Actions extrai o pacote de mídia versionado em media-chunks/. Os perfis oficiais foram mantidos como referência e links de navegação.
 
 Exemplo:
     { "media": [ { "type":"foto", "src":"assets/media/acao-01.webp", "title":"Ação de saúde" }, { "type":"video", "src":"assets/media/acao-02.mp4", "title":"Nosso trabalho" } ] }

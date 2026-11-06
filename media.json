@@ -1,3 +1,103 @@
 {
-  "media": []
+  "media": [
+    {
+      "type": "foto",
+      "src": "assets/media/acao-vista-aerea.webp",
+      "title": "Estrutura das ações de saúde",
+      "alt": "Vista aérea da estrutura Med Center com unidades móveis, tendas de acolhimento e público",
+      "featured": true
+    },
+    {
+      "type": "foto",
+      "src": "assets/media/carreta-unidade-movel.webp",
+      "title": "Carreta Med Center: saúde em movimento",
+      "alt": "Carreta vermelha e branca da Clínica Med Center, unidade móvel de saúde",
+      "featured": true
+    },
+    {
+      "type": "video",
+      "src": "assets/media/video-carreta-diagnosticos.mp4",
+      "poster": "assets/media/video-carreta-diagnosticos-capa.webp",
+      "title": "Conheça a unidade móvel e os exames"
+    },
+    {
+      "type": "foto",
+      "src": "assets/media/carreta-fachada.webp",
+      "title": "Unidades móveis em ação",
+      "alt": "Vista aérea de um grande evento de saúde, com diversas carretas e tendas"
+    },
+    {
+      "type": "foto",
+      "src": "assets/media/equipe-na-carreta.webp",
+      "title": "Profissionais junto à carreta",
+      "alt": "Profissionais da Clínica Med Center ao lado do veículo de atendimento"
+    },
+    {
+      "type": "foto",
+      "src": "assets/media/acao-carretas-e-tendas.webp",
+      "title": "Acolhimento e estrutura montada",
+      "alt": "Carretas da Med Center junto às tendas de atendimento em uma localidade",
+      "featured": true
+    },
+    {
+      "type": "video",
+      "src": "assets/media/video-acoes-atendimento.mp4",
+      "poster": "assets/media/video-acoes-atendimento-capa.webp",
+      "title": "Bastidores de uma ação de atendimento"
+    },
+    {
+      "type": "foto",
+      "src": "assets/media/atendimento-comunidade.webp",
+      "title": "Atendimento à comunidade",
+      "alt": "Profissional da saúde atendendo uma pessoa durante uma ação de cuidados"
+    },
+    {
+      "type": "foto",
+      "src": "assets/media/equipe-protecao.webp",
+      "title": "Equipe preparada para atender",
+      "alt": "Profissionais da Clínica Med Center com equipamentos de proteção junto a uma unidade móvel"
+    },
+    {
+      "type": "foto",
+      "src": "assets/media/estrutura-interior.webp",
+      "title": "Equipe e estrutura itinerante",
+      "alt": "Equipe da Med Center fotografada ao lado de unidade de saúde móvel"
+    },
+    {
+      "type": "video",
+      "src": "assets/media/video-apresentacao.mp4",
+      "poster": "assets/media/video-apresentacao-capa.webp",
+      "title": "A Med Center apresenta seu trabalho"
+    },
+    {
+      "type": "foto",
+      "src": "assets/media/trabalho-nos-bastidores.webp",
+      "title": "Diagnóstico e equipe",
+      "alt": "Profissionais em ambiente de exame diagnóstico"
+    },
+    {
+      "type": "foto",
+      "src": "assets/media/equipe-em-acao.webp",
+      "title": "A equipe faz a diferença",
+      "alt": "Integrantes da equipe da Med Center em frente à estrutura móvel de atendimento"
+    },
+    {
+      "type": "video",
+      "src": "assets/media/video-comunidade.mp4",
+      "poster": "assets/media/video-comunidade-capa.webp",
+      "title": "O cuidado chega à comunidade"
+    },
+    {
+      "type": "foto",
+      "src": "assets/media/equipe-saude-movel.webp",
+      "title": "Histórias e pessoas da Med Center",
+      "alt": "Registros de profissionais e equipes da Clínica Med Center"
+    },
+    {
+      "type": "foto",
+      "src": "assets/media/maternidade-campanha.webp",
+      "title": "Cuidado com a saúde materna",
+      "alt": "Material institucional da campanha de cuidado e amamentação da Med Center"
+    }
+  ]
 }

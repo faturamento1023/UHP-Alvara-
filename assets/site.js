@@ -27,7 +27,7 @@ function renderMedia(items){
  const usable=items.filter(x=>x&&(x.type==='foto'||x.type==='video')&&safePath(x.src)).slice(0,24);if(!usable.length)return;
  gallery.replaceChildren();
  for(const item of usable){
-   const f=add('figure','media-item'+(item.type==='video'?' has-video':''),gallery);
+   const f=add('figure','media-item'+(item.type==='video'?' has-video':'')+(item.featured?' featured':''),gallery);
    if(item.type==='foto'){const img=add('img','',f);img.src=item.src;img.loading='lazy';img.decoding='async';img.alt=String(item.alt||item.title||'Registro da Clínica Med Center')}
    else{const vid=add('video','',f);vid.src=item.src;vid.controls=true;vid.playsInline=true;vid.preload='none';if(safePath(item.poster))vid.poster=item.poster}
    const caption=add('figcaption','',f);add('span','media-source',caption,item.type==='video'?'VÍDEO · MED CENTER':'FOTO · MED CENTER');add('span','',caption,String(item.title||'Registro de atuação'));
